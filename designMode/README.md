@@ -2,3 +2,4 @@
 
 ### 设计模式Demo
 
+* 策略模式 /calculate

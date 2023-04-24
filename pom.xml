@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>common</module>
         <module>designMode</module>
         <module>websocket</module>
         <module>cpuHigh</module>
@@ -37,6 +38,11 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>1.2.83</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>5.8.16</version>
         </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>

@@ -9,15 +9,15 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
 
-	<artifactId>cpuHigh</artifactId>
+	<artifactId>common</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>cpuHigh</name>
-	<description>cpuHigh</description>
+	<name>common</name>
+	<description>common</description>
 	<properties>
 		<java.version>1.8</java.version>
 	</properties>
 
-    <build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>

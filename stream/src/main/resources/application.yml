@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: stream
+
+server:
+  port: 8010

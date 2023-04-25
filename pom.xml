@@ -20,6 +20,7 @@
         <module>designMode</module>
         <module>websocket</module>
         <module>cpuHigh</module>
+        <module>stream</module>
     </modules>
 
     <properties>

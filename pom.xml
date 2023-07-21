@@ -22,6 +22,7 @@
         <module>cpuHigh</module>
         <module>stream</module>
         <module>advice</module>
+        <module>saToken</module>
     </modules>
 
     <properties>

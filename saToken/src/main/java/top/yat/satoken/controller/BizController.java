@@ -38,6 +38,28 @@ public class BizController {
     }
 
     /**
+     * 角色校验：必须具有指定角色才能进入该方法
+     *
+     * @return String
+     */
+    @SaCheckRole("user")
+    @RequestMapping("addUser")
+    public String addUser() {
+        return "用户增加User";
+    }
+
+    /**
+     * 权限校验：必须具有指定权限才能进入该方法
+     *
+     * @return String
+     */
+    @SaCheckPermission("user.get")
+    @RequestMapping("get")
+    public String get() {
+        return "用户获取信息";
+    }
+
+    /**
      * 权限校验：必须具有指定权限才能进入该方法
      *
      * @return String

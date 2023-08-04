@@ -32,10 +32,12 @@ public class UserController {
      */
     @RequestMapping("doLogin")
     public SaResult doLogin(String name, String pwd) {
-        // 第一步：比对前端提交的账号名称、密码
-        if ("zhang".equals(name) && "123456".equals(pwd)) {
-            // 第二步：根据账号id，进行登录
+        if ("admin".equals(name) && "admin".equals(pwd)) {
             StpUtil.login(10001);
+            return SaResult.ok("doLogin-登录成功");
+        }
+        if ("xue".equals(name) && "xue".equals(pwd)) {
+            StpUtil.login(10002);
             return SaResult.ok("doLogin-登录成功");
         }
         return SaResult.error("doLogin-登录失败");

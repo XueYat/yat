@@ -1,4 +1,4 @@
-package top.yat.satoken.handler;
+package top.yat.satoken.exception;
 
 import cn.dev33.satoken.util.SaResult;
 import org.springframework.web.bind.annotation.ExceptionHandler;

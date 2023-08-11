@@ -1,32 +1,35 @@
-package top.yat.satoken.service;
+package top.yat.satoken.service.impl;
 
 import cn.dev33.satoken.stp.StpInterface;
 import org.springframework.stereotype.Component;
+import top.yat.satoken.service.IPermissionService;
 
+import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 
 /**
  * 自定义权限加载接口实现类
- *
- * @author XueYat
- * @date 2023/07/21
  */
 @Component
 public class StpInterfaceImpl implements StpInterface {
+
+    @Resource
+    private IPermissionService IPermissionService;
 
     /**
      * 返回一个账号所拥有的权限码集合
      */
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
-        // 本 list 仅做模拟，实际项目中要根据具体业务逻辑来查询权限
-        List<String> list = new ArrayList<String>();
-        if ("10001".equals(loginId.toString())) {
+        List<String> list = new ArrayList<>();
+        if ("1".equals(loginId.toString())) {
             list.add("*");
         } else {
-            list.add("user.get");
+            Set<String> menuPermission = IPermissionService.getMenuPermission(Integer.valueOf(loginId.toString()));
+            list.addAll(menuPermission);
         }
         return list;
     }
@@ -36,13 +39,13 @@ public class StpInterfaceImpl implements StpInterface {
      */
     @Override
     public List<String> getRoleList(Object loginId, String loginType) {
-        // 本 list 仅做模拟，实际项目中要根据具体业务逻辑来查询角色
-        List<String> list = new ArrayList<String>();
-        if ("10001".equals(loginId.toString())) {
-            list.add("admin");
+        List<String> list = new ArrayList<>();
+        if ("1".equals(loginId.toString())) {
             list.add("super-admin");
         } else {
-            list.add("user");
+            Set<String> rolePermission = IPermissionService.getRolePermission(Integer.valueOf(loginId.toString())
+            );
+            list.addAll(rolePermission);
         }
         return list;
     }

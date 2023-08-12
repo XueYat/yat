@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    #url: jdbc:mysql://101.42.137.243:3306/saToken?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
+    #username: root
+    #password: Xue521110
+    url: ENC(syti2cczyijeiYAitXEtBrW9XFFyN5+3rAPiaWI7JfB80H/9u9uGUnsfHIivEOHOZyxPhkBNwlCAP0ay12p9rEUKXTwou0USmApfoZ8BLOtjdeIfFvlktqqbrGdnHTUdV8GNJq1UDenEoC6COejEupeKBfN1aXNWvqLLY688HUxL9pWXDkxJnLrTmBdogm97DE9pJv54XanTrhm0psloLHQf7QqDiXR9)
+    username: ENC(oY11vgq25mKlOtFUN0K6GQ==)
+    password: ENC(iw8melL7mhZom8t4bmvrSU+P1Sj5FP7w)
+    driver-class-name: com.mysql.cj.jdbc.Driver

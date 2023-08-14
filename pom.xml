@@ -25,6 +25,7 @@
         <module>saToken</module>
         <module>playPiano</module>
         <module>jasypt</module>
+        <module>desensitization</module>
     </modules>
 
     <properties>

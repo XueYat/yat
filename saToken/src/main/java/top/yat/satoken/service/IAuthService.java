@@ -1,10 +1,13 @@
 package top.yat.satoken.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.yat.satoken.controller.vo.UserVo;
-import top.yat.satoken.entity.User;
+import top.yat.satoken.pojo.vo.AuthVo;
+import top.yat.satoken.pojo.entity.User;
+import top.yat.satoken.pojo.vo.UserVo;
 
 public interface IAuthService extends IService<User> {
 
-    UserVo doLogin(User user);
+    AuthVo doLogin(User user);
+
+    UserVo getUserInfo();
 }

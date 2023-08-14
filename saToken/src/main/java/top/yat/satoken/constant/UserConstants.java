@@ -127,11 +127,16 @@ public interface UserConstants {
     /**
      * 管理员ID
      */
-    Long ADMIN_ID = 1L;
+    Integer ADMIN_ID = 1;
 
     /**
-     * 管理员角色key
+     * 管理员
      */
-    String ADMIN_ROLE_KEY = "admin";
+    String SUPER_ADMIN = "super-admin";
+
+    /**
+     * 管理员权限
+     */
+    String SUPER_ADMIN_PERMISSION = "*";
 
 }

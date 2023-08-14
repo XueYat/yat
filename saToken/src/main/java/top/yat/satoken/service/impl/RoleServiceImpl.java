@@ -4,8 +4,8 @@ import cn.hutool.core.util.ObjectUtil;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.yat.common.utils.StringUtils;
-import top.yat.satoken.entity.Role;
-import top.yat.satoken.mapper.RoleMapper;
+import top.yat.satoken.pojo.entity.Role;
+import top.yat.satoken.dao.RoleMapper;
 import top.yat.satoken.service.IRoleService;
 
 import javax.annotation.Resource;

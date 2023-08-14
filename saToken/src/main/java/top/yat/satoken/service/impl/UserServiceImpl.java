@@ -9,9 +9,9 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.yat.common.utils.StringUtils;
 import top.yat.satoken.constant.UserConstants;
-import top.yat.satoken.entity.PageQuery;
-import top.yat.satoken.entity.User;
-import top.yat.satoken.mapper.UserMapper;
+import top.yat.satoken.pojo.entity.PageQuery;
+import top.yat.satoken.pojo.entity.User;
+import top.yat.satoken.dao.UserMapper;
 import top.yat.satoken.service.IUserService;
 
 import javax.annotation.Resource;

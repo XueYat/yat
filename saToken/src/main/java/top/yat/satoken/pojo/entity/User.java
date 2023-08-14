@@ -1,4 +1,4 @@
-package top.yat.satoken.entity;
+package top.yat.satoken.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -11,9 +11,9 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @TableName("t_user")
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class User {

@@ -3,8 +3,8 @@ package top.yat.satoken.service.impl;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 import top.yat.common.utils.StringUtils;
-import top.yat.satoken.entity.Menu;
-import top.yat.satoken.mapper.MenuMapper;
+import top.yat.satoken.pojo.entity.Menu;
+import top.yat.satoken.dao.MenuMapper;
 import top.yat.satoken.service.IMenuService;
 
 import javax.annotation.Resource;

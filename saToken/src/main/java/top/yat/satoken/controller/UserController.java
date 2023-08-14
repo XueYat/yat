@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import top.yat.common.base.Result;
-import top.yat.satoken.entity.PageQuery;
-import top.yat.satoken.entity.User;
+import top.yat.satoken.pojo.entity.PageQuery;
+import top.yat.satoken.pojo.entity.User;
 import top.yat.satoken.service.IUserService;
 
 import javax.annotation.Resource;

@@ -2,6 +2,7 @@ package top.yat.satoken.service.impl;
 
 import cn.dev33.satoken.stp.StpInterface;
 import org.springframework.stereotype.Component;
+import top.yat.satoken.constant.UserConstants;
 import top.yat.satoken.service.IPermissionService;
 
 import javax.annotation.Resource;
@@ -25,8 +26,8 @@ public class StpInterfaceImpl implements StpInterface {
     @Override
     public List<String> getPermissionList(Object loginId, String loginType) {
         List<String> list = new ArrayList<>();
-        if ("1".equals(loginId.toString())) {
-            list.add("*");
+        if (UserConstants.ADMIN_ID.toString().equals(loginId.toString())) {
+            list.add(UserConstants.SUPER_ADMIN_PERMISSION);
         } else {
             Set<String> menuPermission = IPermissionService.getMenuPermission(Integer.valueOf(loginId.toString()));
             list.addAll(menuPermission);
@@ -40,8 +41,8 @@ public class StpInterfaceImpl implements StpInterface {
     @Override
     public List<String> getRoleList(Object loginId, String loginType) {
         List<String> list = new ArrayList<>();
-        if ("1".equals(loginId.toString())) {
-            list.add("super-admin");
+        if (UserConstants.ADMIN_ID.toString().equals(loginId.toString())) {
+            list.add(UserConstants.SUPER_ADMIN);
         } else {
             Set<String> rolePermission = IPermissionService.getRolePermission(Integer.valueOf(loginId.toString())
             );

@@ -1,4 +1,4 @@
-package top.yat.satoken.entity;
+package top.yat.satoken.pojo.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.AllArgsConstructor;
@@ -9,9 +9,9 @@ import lombok.NoArgsConstructor;
 import java.util.Date;
 
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Builder
 @TableName("t_menu")
 public class Menu {
 

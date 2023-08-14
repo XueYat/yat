@@ -1,4 +1,4 @@
-package top.yat.satoken.entity;
+package top.yat.satoken.pojo.entity;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;

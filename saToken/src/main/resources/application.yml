@@ -44,10 +44,10 @@ sa-token:
   is-log: false
 
 mybatis-plus:
-  mapperPackage: top.yat.satoken.mapper
+  mapperPackage: top.yat.satoken.dao
   mapper-locations: classpath:mappers/*.xml
   #实体扫描，多个package用逗号或者分号分隔
-  typeAliasesPackage: top.yat.satoken.entity
+  typeAliasesPackage: top.yat.satoken.pojo
   global-config:
     # 数据库相关配置
     db-config:

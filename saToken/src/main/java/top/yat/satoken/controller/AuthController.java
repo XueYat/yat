@@ -6,12 +6,9 @@ import cn.dev33.satoken.stp.StpUtil;
 import cn.dev33.satoken.util.SaResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpHeaders;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import top.yat.common.base.Result;
-import top.yat.satoken.entity.User;
+import top.yat.satoken.pojo.entity.User;
 import top.yat.satoken.service.IAuthService;
 
 import javax.annotation.Resource;
@@ -35,9 +32,14 @@ public class AuthController {
      * @param user
      * @return SaResult
      */
-    @RequestMapping("/doLogin")
+    @PostMapping("/doLogin")
     public Result doLogin(@RequestBody User user) {
         return success(authService.doLogin(user));
+    }
+
+    @GetMapping("/getUserInfo")
+    public Result getUserInfo() {
+        return success(authService.getUserInfo());
     }
 
     /**

@@ -9,7 +9,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 /**
- * 自定义数据脱敏注解
+ * 自定义数据脱敏注解，在接口返回数据前，在序列化的时候对敏感字段值进行处理，并且选用 jackson 的序列化来实现
  */
 @Target(ElementType.FIELD) // 作用在字段上
 @Retention(RetentionPolicy.RUNTIME) // class文件中保留，运行时也保留，能通过反射读取到

@@ -24,6 +24,7 @@
         <module>advice</module>
         <module>saToken</module>
         <module>playPiano</module>
+        <module>jasypt</module>
     </modules>
 
     <properties>

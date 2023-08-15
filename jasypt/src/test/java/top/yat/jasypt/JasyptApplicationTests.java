@@ -1,5 +1,6 @@
 package top.yat.jasypt;
 
+import lombok.extern.slf4j.Slf4j;
 import org.jasypt.encryption.StringEncryptor;
 import org.jasypt.encryption.pbe.StandardPBEStringEncryptor;
 import org.jasypt.encryption.pbe.config.EnvironmentPBEConfig;
@@ -8,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import javax.annotation.Resource;
 
+@Slf4j
 @SpringBootTest
 class JasyptApplicationTests {
 
@@ -55,6 +57,8 @@ class JasyptApplicationTests {
 		System.out.println(standardPBEStringEncryptor.decrypt(stUrl));
 		System.out.println(standardPBEStringEncryptor.decrypt(stUsername));
 		System.out.println(standardPBEStringEncryptor.decrypt(stPassword));
+		log.error(stUrl);
+		log.info(stUrl);
 	}
 
 }

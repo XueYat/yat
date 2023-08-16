@@ -1,4 +1,4 @@
-package top.yat.desensitization.desensitize;
+package top.yat.common.annotation;
 
 public class PrivacyUtil {
 
@@ -49,6 +49,7 @@ public class PrivacyUtil {
 
     /**
      * 对字符串进行脱敏操作
+     *
      * @param origin          原始字符串
      * @param prefixNoMaskLen 左侧需要保留几位明文字段
      * @param suffixNoMaskLen 右侧需要保留几位明文字段

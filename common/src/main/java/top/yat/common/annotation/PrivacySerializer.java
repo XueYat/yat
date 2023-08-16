@@ -1,4 +1,4 @@
-package top.yat.desensitization.desensitize;
+package top.yat.common.annotation;
 
 import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.databind.BeanProperty;

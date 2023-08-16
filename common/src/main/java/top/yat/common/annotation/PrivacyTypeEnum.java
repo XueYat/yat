@@ -1,4 +1,4 @@
-package top.yat.desensitization.desensitize;
+package top.yat.common.annotation;
 
 import lombok.Getter;
 

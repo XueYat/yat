@@ -60,6 +60,8 @@ public class PrivacySerializer extends JsonSerializer<String> implements Context
                 default:
                     throw new IllegalArgumentException("unknown privacy type enum " + privacyTypeEnum);
             }
+        } else {
+            jsonGenerator.writeString(origin);
         }
     }
 

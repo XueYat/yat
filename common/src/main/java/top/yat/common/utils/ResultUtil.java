@@ -47,6 +47,19 @@ public class ResultUtil {
     }
 
     /**
+     * 失败，自定义消息
+     *
+     * @param msg  失败信息
+     * @return Result
+     */
+    public static <T> Result<T> error(String msg) {
+        Result<T> result = new Result<>();
+        result.setCode(ResultEnum.SYSTEM_ERROR.getCode());
+        result.setMsg(msg);
+        return result;
+    }
+
+    /**
      * 失败，默认错误
      *
      * @return Result

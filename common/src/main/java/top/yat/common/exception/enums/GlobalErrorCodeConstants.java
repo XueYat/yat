@@ -1,11 +1,11 @@
-package top.yat.cache.exception.enums;
+package top.yat.common.exception.enums;
 
-import top.yat.cache.exception.ErrorCode;
+import top.yat.common.exception.ErrorCode;
 
 /**
  * 全局错误码枚举
  * 0-999 系统异常编码保留
- * 一般情况下，使用 HTTP 响应状态码 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status
+ * 一般情况下，使用 HTTP 响应状态码
  * 虽然说，HTTP 响应状态码作为业务使用表达能力偏弱，但是使用在系统层面还是非常不错的
  * 比较特殊的是，因为之前一直使用 0 作为成功，就不使用 200 啦。
  */
@@ -29,8 +29,10 @@ public interface GlobalErrorCodeConstants {
     ErrorCode NOT_IMPLEMENTED = new ErrorCode(501, "功能未实现/未开启");
 
     // ========== 自定义错误段 ==========
-    ErrorCode REPEATED_REQUESTS = new ErrorCode(900, "重复请求，请稍后重试"); // 重复请求
-    ErrorCode DEMO_DENY = new ErrorCode(901, "演示模式，禁止写操作");
+    // 重复请求
+    ErrorCode REPEATED_REQUESTS = new ErrorCode(900, "重复请求，请稍后重试");
+    // Redis限流
+    ErrorCode REDIS_LIMIT = new ErrorCode(901, "当前排队人数较多，请稍后再试！");
 
     ErrorCode UNKNOWN = new ErrorCode(999, "未知错误");
 

@@ -48,6 +48,7 @@ public class InventoryServiceImplService extends ServiceImpl<InventoryMapper, In
     public void updateProductInventoryById(Inventory inventory) {
         Inventory i = inventoryMapper.selectOne(buildQueryWrapper(inventory));
         inventory.setNum(i.getNum() - 1);
+        // 乐观锁实现
         inventory.setVersion(i.getVersion());
         //inventoryMapper.updateProductInventoryById(inventory);
         // 乐观锁仅支持 updateById(id) 与 update(entity, wrapper) 方法

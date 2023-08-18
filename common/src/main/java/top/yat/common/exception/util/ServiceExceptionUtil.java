@@ -1,10 +1,10 @@
-package top.yat.cache.exception.util;
+package top.yat.common.exception.util;
 
 import com.google.common.annotations.VisibleForTesting;
 import lombok.extern.slf4j.Slf4j;
-import top.yat.cache.exception.ErrorCode;
-import top.yat.cache.exception.ServiceException;
-import top.yat.cache.exception.enums.GlobalErrorCodeConstants;
+import top.yat.common.exception.ErrorCode;
+import top.yat.common.exception.ServiceException;
+import top.yat.common.exception.enums.GlobalErrorCodeConstants;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;

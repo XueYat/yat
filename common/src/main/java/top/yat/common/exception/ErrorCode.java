@@ -1,4 +1,4 @@
-package top.yat.cache.exception;
+package top.yat.common.exception;
 
 import lombok.Data;
 

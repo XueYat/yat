@@ -21,8 +21,8 @@ import top.yat.common.utils.StringUtils;
 
 import javax.annotation.Resource;
 
-import static top.yat.cache.constant.ErrorCodeConstants.PRODUCT_IS_NOT_EXISTS;
-import static top.yat.cache.exception.util.ServiceExceptionUtil.exception;
+import static top.yat.common.constant.ErrorCodeConstants.PRODUCT_IS_NOT_EXISTS;
+import static top.yat.common.exception.util.ServiceExceptionUtil.exception;
 
 @Slf4j
 @Service

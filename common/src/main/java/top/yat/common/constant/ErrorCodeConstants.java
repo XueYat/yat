@@ -1,6 +1,6 @@
-package top.yat.cache.constant;
+package top.yat.common.constant;
 
-import top.yat.cache.exception.ErrorCode;
+import top.yat.common.exception.ErrorCode;
 
 public interface ErrorCodeConstants {
 

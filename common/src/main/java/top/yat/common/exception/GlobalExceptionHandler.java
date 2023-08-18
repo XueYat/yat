@@ -1,4 +1,4 @@
-package top.yat.cache.exception;
+package top.yat.common.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -15,7 +15,7 @@ import top.yat.common.base.Result;
 
 import javax.servlet.http.HttpServletRequest;
 
-import static top.yat.cache.exception.enums.GlobalErrorCodeConstants.*;
+import static top.yat.common.exception.enums.GlobalErrorCodeConstants.*;
 import static top.yat.common.utils.ResultUtil.error;
 
 @RestControllerAdvice

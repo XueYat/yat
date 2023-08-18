@@ -19,13 +19,13 @@ import top.yat.common.utils.EncryptUtils;
 public class ResponseBody implements ResponseBodyAdvice {
 
     //是否对返回拦截处理
-    private Boolean enable = true;
+    private Boolean enable = false;
 
     private final static String encryptKey = "abdel99999999";
 
     @Override
     public boolean supports(MethodParameter methodParameter, Class aClass) {
-        log.info("【进入-ResponseBody-supports】");
+        //log.info("【进入-ResponseBody-supports】");
         if (enable.equals(true)) {
             return true;
         }
@@ -34,7 +34,7 @@ public class ResponseBody implements ResponseBodyAdvice {
 
     @Override
     public Object beforeBodyWrite(Object o, MethodParameter methodParameter, MediaType mediaType, Class aClass, ServerHttpRequest serverHttpRequest, ServerHttpResponse serverHttpResponse) {
-        log.info("【进入-ResponseBody-beforeBodyWrite】");
+        //log.info("【进入-ResponseBody-beforeBodyWrite】");
         if (o == null) {
             return null;
         }

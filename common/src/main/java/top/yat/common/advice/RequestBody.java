@@ -25,14 +25,14 @@ import java.lang.reflect.Type;
 public class RequestBody implements RequestBodyAdvice {
 
     //是否对请求拦截处理(根据实际情况可以写在配置文件中)
-    private Boolean enable = true;
+    private Boolean enable = false;
 
     //密钥(根据实际情况可以写在配置文件中)
     private final static String encryptKey = "abdel99999999";
 
     @Override
     public boolean supports(MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        log.info("【进入-RequestBody-supports】");
+        //log.info("【进入-RequestBody-supports】");
         //是否开启拦截
         if (!enable.equals(true)) {
             return false;
@@ -46,7 +46,7 @@ public class RequestBody implements RequestBodyAdvice {
 
     @Override
     public HttpInputMessage beforeBodyRead(HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) throws IOException {
-        log.info("【进入-RequestBody-beforeBodyRead】");
+        //log.info("【进入-RequestBody-beforeBodyRead】");
         log.info("【拦截到的请求参数为:】" + httpInputMessage.toString());
 
         String s = null;
@@ -76,13 +76,13 @@ public class RequestBody implements RequestBodyAdvice {
 
     @Override
     public Object afterBodyRead(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        log.info("【进入-RequestBody-afterBodyRead】");
+        //log.info("【进入-RequestBody-afterBodyRead】");
         return o;
     }
 
     @Override
     public Object handleEmptyBody(Object o, HttpInputMessage httpInputMessage, MethodParameter methodParameter, Type type, Class<? extends HttpMessageConverter<?>> aClass) {
-        log.info("【进入-RequestBody-handleEmptyBody】");
+        //log.info("【进入-RequestBody-handleEmptyBody】");
         return null;
     }
 

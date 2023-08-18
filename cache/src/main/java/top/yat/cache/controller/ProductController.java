@@ -20,6 +20,7 @@ public class ProductController {
 
     @GetMapping("/getProductList")
     public Result getProductList(Product product, PageQuery pageQuery) {
+        log.info("getProductList");
         return ResultUtil.success(productService.getProductList(product, pageQuery));
     }
 

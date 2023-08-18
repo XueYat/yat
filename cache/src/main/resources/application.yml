@@ -1,4 +1,8 @@
+server:
+  port: 8080
 spring:
+  application:
+    name: yat-cache
   datasource:
     url: jdbc:mysql://101.42.137.243:3306/saToken?useUnicode=true&characterEncoding=UTF-8&useSSL=false&autoReconnect=true&failOverReadOnly=false&serverTimezone=GMT%2B8
     username: root
@@ -26,6 +30,19 @@ spring:
         max-idle: 10
         # 连接池中的最小空闲连接
         min-idle: 0
+
+logging:
+  config: classpath:logback-spring.xml
+  path: ./yat/logs
+  level:
+    root: info
+  console:
+    level: info
+  file:
+    max-history: 30
+    max-size: 100MB
+    total-size-cap: 1GB
+
 
 mybatis-plus:
   mapperPackage: top.yat.cache.dao

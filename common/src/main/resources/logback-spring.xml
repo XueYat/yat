@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <!-- 引入logback 默认控制台输出格式 -->
+    <!-- <include resource="org/springframework/boot/logging/logback/defaults.xml" /> -->
+
+    <!-- 项目的自定义spring属性 -->
+    <springProperty scope="context" name="logging.level.root" source="logging.level.root"/>
+    <springProperty scope="context" name="logging.console.level" source="logging.console.level"/>
+    <springProperty scope="context" name="logging.path" source="logging.path"/>
+    <springProperty scope="context" name="logging.name" source="spring.application.name"/>
+    <springProperty scope="context" name="logging.file.max-history" source="logging.file.max-history"/>
+    <springProperty scope="context" name="logging.file.max-size" source="logging.file.max-size"/>
+    <springProperty scope="context" name="logging.file.total-size-cap" source="logging.file.total-size-cap"/>
+    <springProperty scope="context" name="localPort" source="server.port"/>
+    <define name="ip" class="top.yat.common.config.IpConfig"/>
+
+    <property name="APP_ID" value="${logging.name}"/>
+    <property name="LOG_PATH" value="${logging.path}"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} traceId:[%X{traceId}] %-4relative [%thread] %-5level %logger{35} - %msg %n</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>${logging.console.level}</level>
+        </filter>
+    </appender>
+
+    <!-- DEBUG日志控制 -->
+    <appender name="FILE_DEBUG" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>DEBUG</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${LOG_PATH}/${APP_ID}_${localPort}/debug_${APP_ID}_${ip}_${localPort}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_ID}_${localPort}/debug_${APP_ID}_${ip}_${localPort}.log.%d{yyyy-MM-dd}_%i.zip</fileNamePattern>
+            <maxHistory>${logging.file.max-history:-30}</maxHistory>
+            <maxFileSize>${logging.file.max-size:-100MB}</maxFileSize>
+            <totalSizeCap>${logging.file.total-size-cap:-1GB}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} traceId:[%X{traceId}] %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- INFO日志控制 -->
+    <appender name="FILE_INFO" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>INFO</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+        <file>${LOG_PATH}/${APP_ID}_${localPort}/info_${APP_ID}_${ip}_${localPort}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_ID}_${localPort}/info_${APP_ID}_${ip}_${localPort}.log.%d{yyyy-MM-dd}_%i.zip</fileNamePattern>
+            <maxHistory>${logging.file.max-history:-30}</maxHistory>
+            <maxFileSize>${logging.file.max-size:-100MB}</maxFileSize>
+            <totalSizeCap>${logging.file.total-size-cap:-1GB}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} traceId:[%X{traceId}] %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <!-- WARN ERROR日志控制 -->
+    <appender name="FILE_ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>WARN</level>
+        </filter>
+        <file>${LOG_PATH}/${APP_ID}_${localPort}/error_${APP_ID}_${ip}_${localPort}.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/${APP_ID}_${localPort}/error_${APP_ID}_${ip}_${localPort}.log.%d{yyyy-MM-dd}_%i.zip</fileNamePattern>
+            <maxHistory>${logging.file.max-history:-30}</maxHistory>
+            <maxFileSize>${logging.file.max-size:-100MB}</maxFileSize>
+            <totalSizeCap>${logging.file.total-size-cap:-1GB}</totalSizeCap>
+        </rollingPolicy>
+        <encoder>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} traceId:[%X{traceId}] %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ASYNC_LOG_DEBUG" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <appender-ref ref="FILE_DEBUG"/>
+    </appender>
+    <appender name="ASYNC_LOG_INFO" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <appender-ref ref="FILE_INFO"/>
+    </appender>
+    <appender name="ASYNC_LOG_ERROR" class="ch.qos.logback.classic.AsyncAppender">
+        <!-- 不丢失日志.默认的,如果队列的80%已满,则会丢弃TRACT、DEBUG、INFO级别的日志 -->
+        <discardingThreshold>0</discardingThreshold>
+        <!-- 更改默认的队列的深度,该值会影响性能.默认值为256 -->
+        <queueSize>512</queueSize>
+        <appender-ref ref="FILE_ERROR"/>
+    </appender>
+
+    <!-- 全局日志控制 -->
+    <root level="${logging.level.root}">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="ASYNC_LOG_DEBUG"/>
+        <appender-ref ref="ASYNC_LOG_INFO"/>
+        <appender-ref ref="ASYNC_LOG_ERROR"/>
+    </root>
+</configuration>

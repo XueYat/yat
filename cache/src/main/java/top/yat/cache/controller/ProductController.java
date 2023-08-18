@@ -2,8 +2,8 @@ package top.yat.cache.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
-import top.yat.cache.pojo.PageQuery;
-import top.yat.cache.pojo.Product;
+import top.yat.cache.pojo.page.PageQuery;
+import top.yat.cache.pojo.entity.Product;
 import top.yat.cache.service.IProductService;
 import top.yat.common.base.Result;
 import top.yat.common.utils.ResultUtil;

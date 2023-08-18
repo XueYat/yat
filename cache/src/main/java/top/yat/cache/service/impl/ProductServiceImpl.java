@@ -14,8 +14,8 @@ import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import top.yat.cache.dao.ProductMapper;
-import top.yat.cache.pojo.PageQuery;
-import top.yat.cache.pojo.Product;
+import top.yat.cache.pojo.page.PageQuery;
+import top.yat.cache.pojo.entity.Product;
 import top.yat.cache.service.IProductService;
 import top.yat.common.utils.StringUtils;
 
@@ -31,6 +31,15 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
 
     @Resource
     private ProductMapper productMapper;
+
+    private Wrapper<Product> buildQueryWrapper(Product product) {
+        QueryWrapper<Product> wrapper = Wrappers.query();
+        wrapper.eq(StringUtils.isNotEmpty(product.getDelFlag()), "del_flag", 1)
+                .eq(ObjectUtil.isNotNull(product.getProductId()), "product_id", product.getProductId())
+                .like(StringUtils.isNotBlank(product.getName()), "name", product.getName())
+                .eq(ObjectUtil.isNotNull(product.getStatus()), "status", product.getStatus());
+        return wrapper;
+    }
 
     @Override
     public Page<Product> getProductList(Product product, PageQuery pageQuery) {
@@ -60,16 +69,6 @@ public class ProductServiceImpl extends ServiceImpl<ProductMapper, Product> impl
     @CacheEvict(key = "#produceId")
     public void delProductById(Integer produceId) {
         productMapper.deleteById(produceId);
-    }
-
-
-    private Wrapper<Product> buildQueryWrapper(Product product) {
-        QueryWrapper<Product> wrapper = Wrappers.query();
-        wrapper.eq(StringUtils.isNotEmpty(product.getDelFlag()), "del_flag", 1)
-                .eq(ObjectUtil.isNotNull(product.getProductId()), "product_id", product.getProductId())
-                .like(StringUtils.isNotBlank(product.getName()), "name", product.getName())
-                .eq(ObjectUtil.isNotNull(product.getStatus()), "status", product.getStatus());
-        return wrapper;
     }
 
 }

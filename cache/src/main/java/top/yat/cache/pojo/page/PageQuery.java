@@ -1,4 +1,4 @@
-package top.yat.cache.pojo;
+package top.yat.cache.pojo.page;
 
 import cn.hutool.core.collection.CollUtil;
 import cn.hutool.core.util.ObjectUtil;

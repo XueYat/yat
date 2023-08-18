@@ -2,8 +2,8 @@ package top.yat.cache.service;
 
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.IService;
-import top.yat.cache.pojo.PageQuery;
-import top.yat.cache.pojo.Product;
+import top.yat.cache.pojo.page.PageQuery;
+import top.yat.cache.pojo.entity.Product;
 
 public interface IProductService extends IService<Product> {
 

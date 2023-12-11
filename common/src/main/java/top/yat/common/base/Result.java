@@ -1,46 +1,27 @@
 package top.yat.common.base;
 
+import lombok.Data;
+
 /**
  * @author XueYat
  * @date 2023/04/24
  */
+@Data
 public class Result<T> {
     private Integer code;
     private String msg;
     private T data;
+    private String traceId;
 
     public Result() {
         super();
     }
 
-    public Result(Integer code, String msg, T data) {
+    public Result(Integer code, String msg, T data, String traceId) {
         this.code = code;
         this.msg = msg;
         this.data = data;
-    }
-
-    public Integer getCode() {
-        return code;
-    }
-
-    public void setCode(Integer code) {
-        this.code = code;
-    }
-
-    public String getMsg() {
-        return msg;
-    }
-
-    public void setMsg(String msg) {
-        this.msg = msg;
-    }
-
-    public T getData() {
-        return data;
-    }
-
-    public void setData(T data) {
-        this.data = data;
+        this.traceId = traceId;
     }
 
     @Override
@@ -49,6 +30,7 @@ public class Result<T> {
                 "code=" + code +
                 ", msg='" + msg + '\'' +
                 ", data=" + data +
+                ", traceId='" + traceId + '\'' +
                 '}';
     }
 }

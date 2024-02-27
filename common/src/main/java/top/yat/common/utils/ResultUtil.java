@@ -1,5 +1,6 @@
 package top.yat.common.utils;
 
+import org.slf4j.MDC;
 import top.yat.common.base.Result;
 import top.yat.common.enums.ResultEnum;
 
@@ -8,6 +9,8 @@ import top.yat.common.enums.ResultEnum;
  * @date 2023/04/24
  */
 public class ResultUtil {
+
+    private static final String TRACE_ID = "traceId";
 
     /**
      * 成功且带数据
@@ -20,6 +23,7 @@ public class ResultUtil {
         result.setCode(ResultEnum.SUCCESS.getCode());
         result.setMsg(ResultEnum.SUCCESS.getMsg());
         result.setData(data);
+        result.setTraceId(MDC.get(TRACE_ID));
         return result;
     }
 
@@ -43,6 +47,7 @@ public class ResultUtil {
         Result<T> result = new Result<>();
         result.setCode(code);
         result.setMsg(msg);
+        result.setTraceId(MDC.get(TRACE_ID));
         return result;
     }
 
@@ -53,10 +58,7 @@ public class ResultUtil {
      * @return Result
      */
     public static <T> Result<T> error(String msg) {
-        Result<T> result = new Result<>();
-        result.setCode(ResultEnum.SYSTEM_ERROR.getCode());
-        result.setMsg(msg);
-        return result;
+        return error(ResultEnum.SYSTEM_ERROR.getCode(), msg);
     }
 
     /**

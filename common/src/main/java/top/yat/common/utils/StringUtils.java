@@ -320,4 +320,54 @@ public class StringUtils extends org.apache.commons.lang3.StringUtils {
                 .collect(Collectors.toList());
     }
 
+    /**
+     * * 判断一个对象数组是否为空
+     *
+     * @param objects 要判断的对象数组
+     *                * @return true：为空 false：非空
+     */
+    public static boolean isEmpty(Object[] objects) {
+        return isNull(objects) || (objects.length == 0);
+    }
+
+    /**
+     * * 判断一个对象数组是否非空
+     *
+     * @param objects 要判断的对象数组
+     * @return true：非空 false：空
+     */
+    public static boolean isNotEmpty(Object[] objects) {
+        return !isEmpty(objects);
+    }
+
+    /**
+     * * 判断一个对象是否为空
+     *
+     * @param object Object
+     * @return true：为空 false：非空
+     */
+    public static boolean isNull(Object object) {
+        return object == null;
+    }
+
+    /**
+     * 判断存在多少个指定字符
+     *
+     * @param s
+     * @param c
+     * @return
+     */
+    public static int count(String s, char c) {
+        if (s == null) {
+            return 0;
+        }
+        int count = 0;
+        for (int i = 0; i < s.length(); i++) {
+            if (c == s.charAt(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
 }

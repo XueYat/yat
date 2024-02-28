@@ -25,7 +25,7 @@ public class WebLogAspect {
 
     private static final ThreadLocal<String> THREAD_LOCAL = new ThreadLocal<>();
 
-    @Pointcut("execution(public * top.yat..*Controller.*(..))")
+    @Pointcut("execution(public * *..*Controller.*(..))")
     public void webLog() {
     }
 
